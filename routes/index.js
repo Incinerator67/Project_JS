@@ -1,18 +1,29 @@
 var express = require('express');
 var router = express.Router();
 
-/* Страница Карамельки */
-router.get('/karamelka', function(req, res, next) {
-  res.send("<h1>Страница Карамельки</h1>")
+/* GET home page. */
+router.get('/Sub', function(req, res, next) {
+  res.render('Sub.ejs', { 
+    title: "Subnautica Wiki", 
+    picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLid5N3GC1HYWjUoZ8Ok7QQ6wAEJTF3ZdEtA&usqp=CAU",
+    desc: "Нырните в глубины инопланетного океана, наполненные чудесами и опасностями! Создавайте снаряжение, управляйте подлодками. Перехитрите местные формы жизни чтобы исследовать цветущие коралловые рифы, вулканы, системы пещер и другие природные чудеса. Раскройте тайну планеты 4546B! И всё это — пытаясь выжить."
+  });
 });
-/* Страница Компота */
-router.get('/kompot', function(req, res, next) {
-  res.send("<h1>Страница Компота</h1>")
+/* GET home page. */
+router.get('/Reaper_Leviathan', function(req, res, next) {
+  res.render('Sub.ejs', { 
+    title: "Жнец-левиафан", 
+    picture: "https://static.wikia.nocookie.net/subnautica/images/e/eb/Reaper_Leviathan_Fauna.png/revision/latest/scale-to-width-down/1000?cb=20170718233502&path-prefix=ru",
+    desc: "Жнец-левиафан (англ. Reaper Leviathan) – гигантская хищная форма жизни, принадлежащая к категории фауна класса «левиафан». Очень опасен и может легко убить игрока, либо лишить его транспорта. Является самым опасным противником для транспорта, так как с одного захвата способен уничтожить Мотылёк или с двух захватов костюма КРАБ (обычно уничтожает с 3-4)."
+  });
 });
-
-/* Страница Коржика */
-router.get('/korthik', function(req, res, next) {
-  res.send("<h1>Страница Коржика</h1>")
+/* GET home page. */
+router.get('/Peeper', function(req, res, next) {
+  res.render('Sub.ejs', { 
+    title: "Пискун", 
+    picture: "https://static.wikia.nocookie.net/subnautica/images/b/be/Peeper_Fauna.png/revision/latest/scale-to-width-down/1000?cb=20150922214109&path-prefix=ru",
+    desc: "Пискун (англ. Peeper) — один из первых представителей местной фауны, которого встречает игрок. Это хороший источник питания. Он набит белками под завязку, так что новичкам при случае лучше всего ловить для еды именно их, а не других рыб, но будьте готовы — его трудно поймать без ласт. Высокую скорость ему позволяют развивать сильный хвостовой и узкие спинные плавники. Имеет хорошо развитые боковые глаза, чтобы высматривать хищников, также, благодаря их свечению, весьма заметен в ночное время суток, и если персонаж будет пытаться поймать его достаточно долго — он сомкнёт веки, тем самым сильно снизив свою заметность. Пискун является талисманом игры, ибо его можно заметить, как иконку игры к любой из частей (В первой — обыкновенный пискун, а во второй — арктический)."
+  });
 });
 
 module.exports = router;
