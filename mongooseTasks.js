@@ -1,13 +1,12 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/test')
+mongoose.connect('mongodb://127.0.0.1/test')
+var schema = mongoose.Schema({ name: String })
 
-var Subnautica = mongoose.model('Sub', { name: String })
+schema.methods.meow = function(){
+  console.log(this.get("name") + " издал громкий рёв")
+}
 
-var kitty = new Warper({ name: 'Страж;' })
-kitty.save(function (err) {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log('Портал')
-    }
-})
+var Leviathan = mongoose.model('Leviathan', schema)
+
+var kitty = new Leviathan({ name: 'Reaper-Leviathan' })
+kitty.save(function (err) {kitty.meow()})
