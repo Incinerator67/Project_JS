@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index.ejs', {
     title: "Subnautica Wiki", 
-    picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLid5N3GC1HYWjUoZ8Ok7QQ6wAEJTF3ZdEtA&usqp=CAU",
+    picture: "https://wallpapers.com/images/hd/subnautica-aurora-hd-ztg7wcpamepkrpuo.jpg",
     desc: "Нырните в глубины инопланетного океана, наполненные чудесами и опасностями! Создавайте снаряжение, управляйте подлодками. Перехитрите местные формы жизни чтобы исследовать цветущие коралловые рифы, вулканы, системы пещер и другие природные чудеса. Раскройте тайну планеты 4546B! И всё это — пытаясь выжить."
   });
 });
@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 router.get('/Reaper_Leviathan', function(req, res, next) {
   res.render('Sub.ejs', { 
     title: "Жнец-левиафан", 
-    picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuPzs9-KAqmKmjFsPWvOCakiEeaacvVRRza17itMp1mEKq0zctAhMJB_N14djbGHrhp1s&usqp=CAU",
+    picture: "https://i.pinimg.com/originals/ac/f2/26/acf226edd7043c36b1fdf64977155c01.jpg",
     desc: "Жнец-левиафан (англ. Reaper Leviathan) – гигантская хищная форма жизни, принадлежащая к категории фауна класса «левиафан». Очень опасен и может легко убить игрока, либо лишить его транспорта. Является самым опасным противником для транспорта, так как с одного захвата способен уничтожить Мотылёк или с двух захватов костюма КРАБ (обычно уничтожает с 3-4)."
   });
 });
@@ -48,6 +48,5 @@ router.get('/Ghost_leviathan', function(req, res, next) {
     picture: "https://i.imgur.com/MGhixN7.jpg",
     desc: "Призрачный левиафан (англ. Ghost leviathan) — это гигантская враждебная форма жизни, принадлежащая к категории фауна из весомого класса «левиафан».Левиафан обладает таким же строением тела, как Электрический угорь. На теле 10 «ножек-плавников» (6 спереди и 4 сзади). Голова своеобразная, напоминает голову Акулы молота, глаза мелкие, рот тоже."
   });
-
 });
 module.exports = router;
