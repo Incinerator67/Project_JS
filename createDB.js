@@ -8,7 +8,7 @@ async function run() {
     var database = client.db("Subnautica");
     database.dropDatabase()
     database = client.db("Subnautica");
-    const fauna = database.collection("fauna_Sub");
+    const fauna = database.collection("leviathans");
     const result = await fauna.insertMany(data);
     console.log(`${result} documents were inserted`)
   } 
