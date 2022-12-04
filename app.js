@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var Leviathan = require('./routes/Leviathan');
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1/Subnautica')
-
+var session = require("express-session")
 var app = express();
 
 // view engine setup
@@ -22,6 +22,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: "Subnautica",
+  cookie:{maxAge:60*1000},
+  resave: true,
+  saveUninitialized: true	
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

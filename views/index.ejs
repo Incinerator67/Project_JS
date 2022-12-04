@@ -2,12 +2,11 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' /> 
+    <% layout('layout/page.ejs') %>
   </head>
   <body>
-    <% layout('layout/page.ejs') %>
     <h1><%= title %></h1>
-    <img src="<%= picture %>" alt="" />
     <p>Welcome to <%= title %></p>
   </body>
 </html>
