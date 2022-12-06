@@ -1,11 +1,12 @@
-/*var express = require('express');
+var express = require('express');
 var router = express.Router();
 const {Leviathan} = require("../models/fauna");
-var async = require("async")
+//var async = require("async")
 
 router.get('/', function(req, res, next) {
   res.send('Новый маршрутизатор, для маршрутов, начинающихся с Leviathan');
 });
+
 // Страница левиафанов 
 router.get("/:nick", function(req, res, next){
   Leviathan.findOne({nick:req.params.nick}, function(err,fauna)
@@ -19,17 +20,7 @@ router.get("/:nick", function(req, res, next){
     })
   })
 });
-module.exports = router;*/
-
-var express = require('express')
-var router = express.Router()
-var Leviathan = require("../models/fauna").Leviathan
-var async = require("async")
-
-router.get('/', function(req, res, next) {
-  res.send('Новый маршрутизатор, для маршрутов, начинающихся с Leviathan')
-});
-
+/*
 router.get('/:nick', function(req, res, next) {
   async.parallel([
     function(callback){Leviathan.findOne({nick:req.params.nick}, callback)},
@@ -48,5 +39,5 @@ router.get('/:nick', function(req, res, next) {
     });
   })
 })
-
+*/
 module.exports = router

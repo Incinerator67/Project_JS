@@ -3,10 +3,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var Leviathan = require('./routes/Leviathan');
+var rout= require('./routes/Leviathan');
+var Leviathan = require("./models/fauna").Leviathan
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1/Subnautica')
 var session = require("express-session")
@@ -34,9 +34,20 @@ app.use(function(req,res,next){
   req.session.counter = req.session.counter +1 || 1
   next()
 })
+
+app.use(function(req,res,next){
+  res.locals.nav = []
+  Leviathan.find(null,{_id:0,title:1,nick:1},function(err,result){
+      if(err) throw err
+      res.locals.nav = result
+      next()
+  })
+})
+
+app.use(require("./middleware/createMenu"));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/Leviathan', Leviathan);
+app.use('/Leviathan', rout);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -50,7 +61,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error',{title:""});
+  res.render('error', {title:'Ошибка'});
 });
 
 module.exports = app;
