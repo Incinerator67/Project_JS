@@ -45,6 +45,7 @@ app.use(function(req,res,next){
 })
 
 app.use(require("./middleware/createMenu"));
+app.use(require("./middleware/createUser"))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/Leviathan', rout);
@@ -61,7 +62,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error', {title:'Ошибка'});
+  res.render('error', {title:'404'});
 });
 
 module.exports = app;
