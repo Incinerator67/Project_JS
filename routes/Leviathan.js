@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {Leviathan} = require("../models/fauna");
+var checkAuth = require("./../middleware/checkAuth.js")
 //var async = require("async")
 
 router.get('/', function(req, res, next) {
@@ -8,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 // Страница левиафанов 
-router.get("/:nick", function(req, res, next){
+router.get("/:nick", checkAuth,function(req, res, next){
   Leviathan.findOne({nick:req.params.nick}, function(err,fauna)
   {
     if(err) return next(err)

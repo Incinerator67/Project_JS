@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Leviathan = require("../models/fauna").Leviathan
 var User = require("./../models/user").User
+var checkAuth = require("./../middleware/checkAuth.js")
 /* GET home page. */
 /*
  router.get('/', function(req, res, next) {
@@ -20,14 +21,14 @@ router.get('/Reaper_Leviathan', function(req, res, next) {
   });
 });
 */
-router.get('/Crabsnake', function(req, res, next) {
+router.get('/Crabsnake',checkAuth, function(req, res, next) {
   res.render('Sub.ejs', { 
     title: "Крабозмей", 
     picture: "https://media.indiedb.com/cache/images/games/1/29/28159/thumb_620x2000/CloseEncounterLarge-1024x606.jpg",
     desc: "Крабозмей (англ. Crabsnake) - это гигантский и уникальный хищник, имеющий симбиотическую связь с медузным грибом. Обитает только в пещерах медузных грибов, где водится в больших количествах (10-15 штук на локацию). Имеет длинное змеевидное тело с двумя полупрозрачными плавниками, проходящими по всему телу. Окрас розовый с красными пятнами. Около рта есть два острых жвала, служащих для захвата пищи."
   });
 });
-router.get('/Warper', function(req, res, next) {
+router.get('/Warper',checkAuth, function(req, res, next) {
   res.render('Sub.ejs', { 
     title: "Страж", 
     picture: "https://i.pinimg.com/originals/99/4d/a1/994da1a092508e772a7daa33fd094728.jpg",
@@ -62,8 +63,14 @@ router.get('/', function(req, res, next) {
 });
 router.get('/logreg', function(req, res, next) {
   res.render('logreg',{title: 'Вход', error:null});
-  });
-  
+});
+
+router.post('/logout', function(req, res, next) {
+    req.session.destroy()
+    res.locals.user = null
+    res.redirect('/')
+});
+
 /* POST login/registration page. */
 router.post('/logreg', function(req, res, next) {
   var username = req.body.username
