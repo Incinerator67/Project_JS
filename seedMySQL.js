@@ -2,7 +2,7 @@ var mysql = require('mysql2');
 
 
 var drop = 'TRUNCATE TABLE leviathans;'
-var seedQuery = 'INSERT INTO leviathans (title, nick, avatar, about) VALUES ("Теневой левиафан", "Shadow_Leviathan", "https://bosslevelgamer.com/cdn-cgi/image/quality=80,format=auto,onerror=redirect,metadata=none/wp-content/uploads/2022/04/subnauticas-leviathans-ranked-from-least-to-most-terrifying.jpg", "Данный массивный левиафан длиной более 60м, по всей видимости, появился из-за стечения нескольких эволюционных ветвей.");'
+var seedQuery = 'INSERT INTO leviathans (title, nick, avatar, about) VALUES ("Призрачный левиафан", "Ghost_leviathan", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiNXTEwrKIeOdzZY4Qi2CoaROrYOUEqzrbNNQxpe-eCP5QGdvuGRd3JGwiaEo0Zo1Etok&usqp=CAU", "Взрослые особи встречаются исключительно вокруг границ вулканического кратера, поддерживающего жизнь в этой части планеты,и реагируют при приближении крайне агрессивно.");'
 
 var connection = mysql.createConnection({
     host : '127.0.0.1',
